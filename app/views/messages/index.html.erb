@@ -1,5 +1,10 @@
 <div class="wrapper">
-  <%= render "side_bar"%>
-  <%= render "main_chat"%>
-  <%# サイドバーとチャット画面のビューファイルが読み込むための設定 %>
+  <div class="side-bar">   <%# サイドバーとチャット画面のビューファイルが読み込むための設定 %>
+    <%= render "side_bar"%>
+
+  </div>
+  <div class="chat">
+    <%= render "main_chat"%>
+
+  </div>
 </div>
