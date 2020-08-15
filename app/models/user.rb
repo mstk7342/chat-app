@@ -8,6 +8,6 @@ class User < ApplicationRecord
   validates :name, presence: true
   # 空の場合はDBに保存しないというバリデーションの設定。nameを空欄にして登録しようとする場合、エラーが発生する。
 
-  has_many :rooms, through: :room_users
   has_many :room_users
+  has_many :rooms, through: :room_users
 end
