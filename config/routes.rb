@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root "messages#index"
   # messages_controllerのindexアクション
   resources :users, only: [:edit, :update]  #ユーザー編集に必要なルーティングは、edit「編集」,update「更新」
+  resources :rooms, only: [:new, :create]  #新規チャットルーム作成ページは、new「生成」、create「保存」
 end
