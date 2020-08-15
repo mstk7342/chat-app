@@ -1,3 +1,4 @@
+# ユーザーのコントローラーファイル
 class UsersController < ApplicationController
 
   def edit
