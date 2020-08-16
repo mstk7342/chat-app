@@ -1,3 +1,4 @@
+    <%# サイドバーのhtmlファイル %>
     <div class="side-bar-header">
       <div class="header-name">
         <%= link_to edit_user_path(current_user) do %>
@@ -9,19 +10,19 @@
         <% end %>
       </div>
       <div class="create-room">
-        <a href="#">チャットを作成する</a>
+        <%= link_to "チャットを作成する", new_room_path %>
+        <%# [rails routes]コマンドでリンクさせるルーティングの確認する %>
+        <%# link_to "リンク文字列", リンク先のパス(URL).path %>
       </div>
     </div>
 
     <div class="rooms">
+    <% current_user.rooms.each do |room| %>
       <div class="room">
-        <div class="room-name">
-        <a href="#">techroom1</a>
+        <div class="name">
+        <a href="#"><%= room.name%></a>　<%# roomテーブルに保存しているroom名%>
         </div>
       </div>
-      <div class="room">
-        <div class="room-name">
-        <a href="#">techroom2</a>
-        </div>
-      </div>
+    <% end %>
+    <%# チャットルームは複数作成出来るので、eachメソッドをすることで全てのチャットルームに対して、「チャットルーム名を表示する」処理の繰り返しの実行を行う。 %>
     </div>
