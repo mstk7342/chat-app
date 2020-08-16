@@ -1,5 +1,9 @@
 # チャットルームのコントローラーファイル
 class RoomsController < ApplicationController
+
+  def index
+  end
+  
   def new
     @room = Room.new
     # チャットルーム新規作成「new」アクションの定義。form_withに渡す引数として、値の空のRoomインスタンスを＠roomに代入
@@ -21,5 +25,6 @@ class RoomsController < ApplicationController
     params.require(:room).permit(:name, user_ids:[])
     # 配列い対して保存の許可をしたい場合は、キーの名称と関連づけて、バリューの中は「[]」と記述する。
   end
+
 
 end
