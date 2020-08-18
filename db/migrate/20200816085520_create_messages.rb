@@ -6,6 +6,8 @@ class CreateMessages < ActiveRecord::Migration[6.0]
       t.references :user, foreign_key: true
       # 外部制約キーでidで判別できるレコードの関連付けを行う。
       t.timestamps
+      # messesテーブルのカラムに追加されるカラム名
+      # referencesとforeign_key: tureはペアで覚えておく
     end
   end
 end

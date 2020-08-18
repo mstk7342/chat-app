@@ -1,3 +1,4 @@
+<%# ビューファイル %>
 <div class="chat-header">
   <div class="left-header">
     <div class="header-title">
@@ -44,13 +45,19 @@
     </div>
   </div>
 </div>
-<div class="form">
+
+  <%= form_with model: [@room, @message], html: {class: "form"}, local: true do |f|%>
+  <%# form_withの引数に@room,@messageはmessagesのルーティングがroomsにネストされている為、記述が必要 %>
+  <%# @room「指定のチャットルームのレコード情報」、@message「Messageモデルのからのインスタンス(Message.new)」 %>
     <div class="form-input">
-        <input placeholder="type a message" class="form-message">
-        <label class="form-image"> <%# label・・・フォームの中でフォームの項目名とフォームの入力要素を関連付ける要素%>
-          <span class="image-file">画像</span>
-          <input type="file" class="hidden">
-        </label>
+      <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+      <label class="form-image">
+        <span class="image-file">画像</span>
+        <%= f.file_field :image, class: 'hidden' %>
+      </label>
     </div>
-    <input type="submit" value="送信" class="form-submit">
-</div>
+    <%= f.submit '送信', class: 'form-submit' %>
+  <% end %>
+
+
+<%# label・・・フォームの中でフォームの項目名とフォームの入力要素を関連付ける要素%>
