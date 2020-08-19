@@ -20,7 +20,8 @@
     <% current_user.rooms.each do |room| %>
       <div class="room">
         <div class="name">
-        <a href="#"><%= room.name%></a>　<%# roomテーブルに保存しているroom名%>
+        <%= link_to room.name, room_messages_path(room) %>　<%# roomテーブルに保存しているroom名%>
+        <%# ネストによってメッセージに紐付いてるチャットルームのidとう意味となる。rails routesコマンドで「room_messagesがroom:id」となっている。 %>
         </div>
       </div>
     <% end %>
