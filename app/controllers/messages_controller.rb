@@ -5,6 +5,9 @@ class MessagesController < ApplicationController
     @room = Room.find(params[:room_id])
     # paramsに含まれているroom.idの代入
     # ルーティングをネストしている為、パスにroom_idが含まれている為、paramsの中にroom_idという値が含まれている。params[:room_id]を記述することでroom_idを取得できる。
+    @messages = @room.messeages.includes(:user)
+    # @messageとチャットルームに紐付いてる全てのメッセージ（@room_messages)
+    # 一覧画面で表示するメッセージ情報に、ユーザー情報も紐付いて表示される。
   end
 
 
@@ -23,6 +26,8 @@ class MessagesController < ApplicationController
       redirect_to room_messages_path(@room)
       # 参加しているチャットルームに投稿したメッセージの一覧画面表示の記述
     else
+      @messages = @room.messeages.includes(:user)
+      
       render :index
       # トップページ（indexアクションが実行）表示をされ同じページに戻るという記述
     end
