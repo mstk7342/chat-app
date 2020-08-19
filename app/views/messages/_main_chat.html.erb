@@ -2,7 +2,7 @@
 <div class="chat-header">
   <div class="left-header">
     <div class="header-title">
-      hogefuga
+      <%= @room.name %>
     </div>
   </div>
 
@@ -12,10 +12,11 @@
       </div>
     </div>
 </div>
+
 <div class="messages">
   <%= render partial: 'message', collection: @messages %>
-  <%# _message.html.erbを部分テンプレートとして、読み込む為の記述 %>
 </div>
+<%# _message.html.erbを部分テンプレートとして、読み込む為の記述 %>
 
   <%= form_with model: [@room, @message], html: {class: "form"}, local: true do |f|%>
   <%# form_withの引数に@room,@messageはmessagesのルーティングがroomsにネストされている為、記述が必要 %>
