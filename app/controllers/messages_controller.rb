@@ -33,6 +33,8 @@ class MessagesController < ApplicationController
   end
 
 
+
+
   private
   # message_paramsを定義して、メッセージの内容(content)をmessagesテーブルへ保存できるようにする。
 

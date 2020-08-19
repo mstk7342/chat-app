@@ -19,6 +19,16 @@ class RoomsController < ApplicationController
     # 保存が上手く行ったかどうかの処理の分岐。上手くいかなかった場合は「render」でrooms/new.html.erbにページを戻す。
   end
 
+  def destroy
+    # 削除するだけなのでビューの表示は必要はない。
+    room = Room.find(params[:id])
+    # 削除したいチャットルームの情報の取得
+    room.destroy
+    # 変数としてroomを定義し、destoryメソッドを使用する
+    redirect_to root_path
+    # destoryメソッドが実行されたらroot(roomのindex)にリダイレクトの記述
+  end
+
   private
 
   def room_params

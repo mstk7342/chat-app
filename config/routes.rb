@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root "rooms#index"
   # messages_controllerのindexアクション
   resources :users, only: [:edit, :update]  #ユーザー編集に必要なルーティングは、edit「編集」,update「更新」
-  resources :rooms, only: [:new, :create] do #新規チャットルーム作成ページは、new「生成」、create「保存」
+  resources :rooms, only: [:new, :create, :destroy] do #新規チャットルーム作成ページは、new「生成」、create「保存」
     resources :messages, only: [:create, :index]
   end
   # メッセージ投稿の際にどのチャットルームで投稿されたメッセージなのかをパスから判断可能にしている。親が「room」、子が「messages」
