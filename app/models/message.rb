@@ -6,6 +6,6 @@ class Message < ApplicationRecord
   # １人のユーザーは、複数のメッセージを送信できる。
   has_one_attached :image
   # Messageテーブルの各レコードと画像ファイルを管理するimageカラムの紐付けができる。Messageテーブルにカラムを追加する必要はない。
-  validates :content, presence: ture
+  validates :content, presence: true
   # 「content」カラムに、presence: tureを設けることで、空の場合DBに保存しないバリデーション設定をしている。
 end
