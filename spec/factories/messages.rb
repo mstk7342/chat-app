@@ -1,0 +1,8 @@
+# 値でFactorBotの指定
+FactoryBot.define do
+  factory :message do
+    content {Faker::Lorem.sentence}
+    association :user
+    association :room
+  end
+end
