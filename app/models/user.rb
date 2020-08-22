@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_users
   has_many :messages
   # １人のユーザーは複数のメッセージを送信できる。　１対多の関係
+
 end
