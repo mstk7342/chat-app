@@ -14,19 +14,12 @@ class MessagesController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     @message = @room.messages.new(message_params)
-    # チャットルームに紐付いたメッセージのインスタンスの生成
-    @message.save
-    # ＠messagrに代入し、saveメソッドでメッセージの内容をmessageテーブルに保存をする
-  end
-
-  def create
-    @room = Room.find(params[:room_id])
-    @message = @room.messages.new(message_params)
+    # binding.pry
     if @message.save #メッセージの保存
       redirect_to room_messages_path(@room)
       # 参加しているチャットルームに投稿したメッセージの一覧画面表示の記述
     else
-      @messages = @room.messeages.includes(:user)
+      @messages = @room.messages.includes(:user)
       render :index
       # トップページ（indexアクションが実行）表示をされ同じページに戻るという記述
     end
